@@ -34,7 +34,7 @@ Route::resource('tipo_servomotor','TipoServoMotorController', ['only' => ['index
 
 Route::resource('tipo_tanque', 'TipoTanqueController', ['except' => ['create', 'edit']]);
 
-Route::post('oauth/token', '\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken');
+// Route::resource('usuario/registrar', 'UsuarioController', ['except' => ['create', 'edit']]);
 
 
 /*
