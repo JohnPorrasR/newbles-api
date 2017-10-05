@@ -12,6 +12,7 @@ class DispositivoController extends ApiController
 
     public function __construct(DispositivoRepo $dispositivoRepo)
     {
+        parent::__construct();
         $this->dispositivoRepo = $dispositivoRepo;
     }
 

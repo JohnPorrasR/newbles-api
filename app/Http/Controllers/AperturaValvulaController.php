@@ -11,6 +11,7 @@ class AperturaValvulaController extends ApiController
 
     public function __construct(AperturaValvulaRepo $aperturaValvulaRepo)
     {
+        parent::__construct();
         $this->aperturaValvulaRepo = $aperturaValvulaRepo;
     }
 

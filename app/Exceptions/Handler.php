@@ -7,6 +7,7 @@ use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Session\TokenMismatchException;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
@@ -82,6 +83,13 @@ class Handler extends ExceptionHandler
         if ($exception instanceof HttpException) {
             return $this->errorResponce($exception->getMessage(), $exception->getStatusCode());
         }
+
+        if($exception instanceof TokenMismatchException)
+        {
+            return redirect()->back()->with($request->input());
+        }
+
+        return $this->errorResponce('Falta de permisos. Comuniquese con el administrador', 500);
 
     }
 
