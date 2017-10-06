@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UsuarioRequest;
 use App\newbles\Repositories\UsuarioRepo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsuarioController extends ApiController
 {
@@ -44,4 +45,12 @@ class UsuarioController extends ApiController
     {
 
     }
+
+    public function login(Request $request)
+    {
+        $this->validateLogin($request);
+
+        return "Hola";
+    }
+
 }

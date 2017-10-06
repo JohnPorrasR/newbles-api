@@ -36,6 +36,8 @@ Route::resource('tipo_tanque', 'TipoTanqueController', ['except' => ['create', '
 
 Route::resource('usuario', 'UsuarioController', ['except' => ['create', 'edit']]);
 
+Route::post('usuario_login', 'UsuarioCOntroller@login')->name('usuario.login');
+
 
 /*
 Route::middleware('auth:api')->get('/user', function (Request $request) {
