@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UsuarioRequest;
 use App\newbles\Repositories\UsuarioRepo;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class UsuarioController extends ApiController
 {
@@ -16,41 +14,83 @@ class UsuarioController extends ApiController
         $this->usuarioRepo = $usuarioRepo;
     }
 
+
     public function index()
     {
-        //
+        $data = $this->usuarioRepo->litarUsuario();
+        return $this->showAll($data);
     }
 
-    public function store(UsuarioRequest $request)
+    public function store(Request $request)
     {
+        $ID_PERSONA = $request->input('ID_PERSONA');
+        $ID_PREGUNTA = $request->input('ID_PREGUNTA');
+        $ID_ROL = $request->input('ID_ROL');
+        $ALIAS = $request->input('ALIAS');
+        $PASSWORD = $request->input('PASSWORD');
+        $RESPUESTA_SECRETA = $request->input('RESPUESTA_SECRETA');
+        $USUARIO_CREACION = $request->input('USUARIO_CREACION');
+        $FECHA_CREACION = $request->input('FECHA_CREACION');
+        $ESTADO_REGISTRO = 'A';
+
         $inputs = [
-            'username' => $request->input('username'),
-            'password' => bcrypt($request->input('password')),
+            'ID_PERSONA' => $ID_PERSONA,
+            'ID_PREGUNTA' => $ID_PREGUNTA,
+            'ID_ROL' => $ID_ROL,
+            'ALIAS' => $ALIAS,
+            'PASSWORD' => $PASSWORD,
+            'RESPUESTA_SECRETA' => $RESPUESTA_SECRETA,
+            'USUARIO_CREACION' => $USUARIO_CREACION,
+            'FECHA_CREACION' => $FECHA_CREACION,
+            'ESTADO_REGISTRO' => $ESTADO_REGISTRO
         ];
-        $usuario = $this->usuarioRepo->insertarUsuario($inputs);
-        return $this->showOne($usuario);
+
+        $data = $this->usuarioRepo->insertarUsuario($inputs);
+        return $this->showOne($data);
     }
 
     public function show($id)
     {
-        //
+        $data = $this->usuarioRepo->listarUnUsuario($id);
+        return $this->showOne($data);
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $ID_USUARIO = $request->input('ID_USUARIO');
+        $ID_PERSONA = $request->input('ID_PERSONA');
+        $ID_PREGUNTA = $request->input('ID_PREGUNTA');
+        $ID_ROL = $request->input('ID_ROL');
+        $ALIAS = $request->input('ALIAS');
+        $PASSWORD = $request->input('PASSWORD');
+        $RESPUESTA_SECRETA = $request->input('RESPUESTA_SECRETA');
+        $USUARIO_MODIFICACION = $request->input('USUARIO_MODIFICACION');
+        $FECHA_MODIFICACION = $request->input('FECHA_MODIFICACION');
+
+        $inputs = [
+            'ID_USUARIO' => $ID_USUARIO,
+            'ID_PERSONA' => $ID_PERSONA,
+            'ID_PREGUNTA' => $ID_PREGUNTA,
+            'ID_ROL' => $ID_ROL,
+            'ALIAS' => $ALIAS,
+            'PASSWORD' => $PASSWORD,
+            'RESPUESTA_SECRETA' => $RESPUESTA_SECRETA,
+            'USUARIO_MODIFICACION' => $USUARIO_MODIFICACION,
+            'FECHA_MODIFICACION' => $FECHA_MODIFICACION
+        ];
+
+        $data = $this->usuarioRepo->actualizarUsuario($inputs, $ID_USUARIO);
+        return $this->showOne($data);
+
     }
 
     public function destroy($id)
     {
-
-    }
-
-    public function login(Request $request)
-    {
-        $this->validateLogin($request);
-
-        return "Hola";
+        $inputs = [
+            'ESTADO_REGISTRO'=> '0C'
+        ];
+        $data = $this->usuarioRepo->actualizarUsuario($inputs, $id);
+        return $this->showOne($data);
     }
 
 }

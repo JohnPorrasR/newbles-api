@@ -19,7 +19,7 @@ class DispositivoController extends ApiController
     public function index()
     {
         $dispositivos = $this->dispositivoRepo->listarDispositivos();
-        return $dispositivos;
+        return $this->showAll($dispositivos);
     }
 
     public function show($cod)

@@ -34,9 +34,10 @@ Route::resource('tipo_servomotor','TipoServoMotorController', ['only' => ['index
 
 Route::resource('tipo_tanque', 'TipoTanqueController', ['except' => ['create', 'edit']]);
 
-Route::resource('usuario', 'UsuarioController', ['except' => ['create', 'edit']]);
+Route::resource('user', 'UserController', ['except' => ['create', 'edit']]);
 
-Route::post('usuario_login', 'UsuarioCOntroller@login')->name('usuario.login');
+Route::post('usuario', 'UsuarioController', ['except' => ['create', 'edit']]);
+
 
 
 /*

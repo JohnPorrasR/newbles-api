@@ -2,42 +2,42 @@
 /**
  * Created by PhpStorm.
  * User: LOPP02
- * Date: 04/10/2017
- * Time: 16:57
+ * Date: 06/10/2017
+ * Time: 11:52
  */
 
 namespace App\newbles\Repositories;
 
 
-use App\User;
+use App\newbles\Entities\Usuario;
 
 class UsuarioRepo
 {
 
     public function litarUsuario()
     {
-        $tipoServoMotor = User::all();
-        return $tipoServoMotor;
+        $usuario = Usuario::all();
+        return $usuario;
     }
 
     public function listarUnUsuario($cod)
     {
-        $tipoServoMotor = User::findOrFail($cod);
-        return $tipoServoMotor;
+        $usuario = Usuario::findOrFail($cod);
+        return $usuario;
     }
 
     public function insertarUsuario($inputs)
     {
-        $tipoServoMotor = User::create($inputs);
-        return $tipoServoMotor;
+        $usuario = Usuario::create($inputs);
+        return $usuario;
     }
 
     public function actualizarUsuario($inputs, $id)
     {
-        $tipoServoMotor = User::findOrFail($id);
-        $tipoServoMotor->fill($inputs);
-        $tipoServoMotor->save();
-        return $tipoServoMotor;
+        $usuario = Usuario::findOrFail($id);
+        $usuario->fill($inputs);
+        $usuario->save();
+        return $usuario;
     }
 
 }
