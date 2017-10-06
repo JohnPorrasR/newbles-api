@@ -29,7 +29,7 @@ class UsuarioController extends ApiController
         $ALIAS = $request->input('ALIAS');
         $PASSWORD = $request->input('PASSWORD');
         $RESPUESTA_SECRETA = $request->input('RESPUESTA_SECRETA');
-        $USUARIO_CREACION = $request->input('USUARIO_CREACION');
+        $USUARIO_CREACION = date("Y-m-d H:i:s");
         $FECHA_CREACION = $request->input('FECHA_CREACION');
         $ESTADO_REGISTRO = 'A';
 
@@ -38,7 +38,7 @@ class UsuarioController extends ApiController
             'ID_PREGUNTA' => $ID_PREGUNTA,
             'ID_ROL' => $ID_ROL,
             'ALIAS' => $ALIAS,
-            'PASSWORD' => $PASSWORD,
+            'PASSWORD' => bcrypt($PASSWORD),
             'RESPUESTA_SECRETA' => $RESPUESTA_SECRETA,
             'USUARIO_CREACION' => $USUARIO_CREACION,
             'FECHA_CREACION' => $FECHA_CREACION,
@@ -64,7 +64,7 @@ class UsuarioController extends ApiController
         $ALIAS = $request->input('ALIAS');
         $PASSWORD = $request->input('PASSWORD');
         $RESPUESTA_SECRETA = $request->input('RESPUESTA_SECRETA');
-        $USUARIO_MODIFICACION = $request->input('USUARIO_MODIFICACION');
+        $USUARIO_MODIFICACION = date("Y-m-d H:i:s");
         $FECHA_MODIFICACION = $request->input('FECHA_MODIFICACION');
 
         $inputs = [
@@ -73,7 +73,7 @@ class UsuarioController extends ApiController
             'ID_PREGUNTA' => $ID_PREGUNTA,
             'ID_ROL' => $ID_ROL,
             'ALIAS' => $ALIAS,
-            'PASSWORD' => $PASSWORD,
+            'PASSWORD' => bcrypt($PASSWORD),
             'RESPUESTA_SECRETA' => $RESPUESTA_SECRETA,
             'USUARIO_MODIFICACION' => $USUARIO_MODIFICACION,
             'FECHA_MODIFICACION' => $FECHA_MODIFICACION
@@ -91,6 +91,16 @@ class UsuarioController extends ApiController
         ];
         $data = $this->usuarioRepo->actualizarUsuario($inputs, $id);
         return $this->showOne($data);
+    }
+
+    public function login(Request $request)
+    {
+        $usu = $request->input('alias');
+        $clave = $request->input('clave');
+
+        $data = $this->usuarioRepo->login($usu, $clave);
+        return $data;
+
     }
 
 }

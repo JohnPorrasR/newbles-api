@@ -10,6 +10,7 @@ namespace App\newbles\Repositories;
 
 
 use App\newbles\Entities\Usuario;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioRepo
 {
@@ -40,4 +41,33 @@ class UsuarioRepo
         return $usuario;
     }
 
+    public function login($usu, $pass)
+    {
+        $data = Usuario::where('ALIAS', $usu)->get();
+        return $data;
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

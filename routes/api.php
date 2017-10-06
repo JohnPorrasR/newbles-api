@@ -36,7 +36,11 @@ Route::resource('tipo_tanque', 'TipoTanqueController', ['except' => ['create', '
 
 Route::resource('user', 'UserController', ['except' => ['create', 'edit']]);
 
-Route::post('usuario', 'UsuarioController', ['except' => ['create', 'edit']]);
+Route::resource('usuario', 'UsuarioController', ['except' => ['create', 'edit']]);
+
+Route::resource('persona', 'PersonaController', ['except' => ['create', 'edit']]);
+
+Route::post('usuario_login', 'UsuarioController@login')->name('usuario.login');
 
 
 
