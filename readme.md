@@ -2,52 +2,48 @@
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+# Newbles
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+El proyecto se direccionara de la siguiente manera, las cuales se encuentran alineados a los 44 procesos de la Guía de Dirección de Proyectos del PMBOK, los cuales agrupamos por las 10 áreas de conocimiento y los 5 grupos de Procesos, asimismo cabe resaltar que cada proceso cuenta con Entradas y Salidas correspondientes.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Herramientas necesarias
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+Componentes necesarios para instalación del servicio
 
-## Learning Laravel
+- **[php 7](https://www.apachefriends.org/es/download.html)**
+- **[Composer](https://getcomposer.org/download/)**
+- **[Git](https://git-scm.com/downloads)**
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+## Instalación del servicio
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](http://patreon.com/taylorotwell):
-
-- **[Vehikl](http://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Styde](https://styde.net)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+1. Instalar php
+2. Instalar y configurar composer
+3. Descargar el proyecto con git
+4. Abrir la terminal en la carpeta del proyecto y ejecutar:
+    ```php
+        composer install
+    ```
+5. Conectar con la base de datos
+    - **Copiar el archivo .env.example y cambiar de nombre por .env**
+        - **DB_CONNECTION=mysql**
+        - **DB_HOST=127.0.0.1**
+        - **DB_PORT=3306**
+        - **DB_DATABASE=DB_DATABASE**
+        - **DB_USERNAME=DB_USERNAME**
+        - **DB_PASSWORD=DB_PASSWORD**
+6.  Generar llave en Laravel
+    ```php
+        php artisan key:generate
+    ```
+7. Ver lista de las rutas habiles
+    ```php
+        php artisan route:list
+    ```
+8. Ejecutar el servidor de Laravel
+    ```php
+        php artisan serve
+    ```

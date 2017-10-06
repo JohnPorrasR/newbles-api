@@ -29,19 +29,12 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        Newbles
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        @if (Auth::check())
-                            <li><a href="{{ route('home.getTokens') }}">Tokens</a></li>
-                            <li><a href="{{ route('home.getClients') }}">Clients</a></li>
-                            <li><a href="{{ route('home.getAuthorizedClients') }}">Authorized</a></li>
-                        @endif
-                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
@@ -55,6 +48,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    @if (Auth::check())
+                                        <li><a href="{{ route('home.getClients') }}">Clients</a></li>
+                                    @endif
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
