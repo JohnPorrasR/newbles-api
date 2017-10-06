@@ -33,4 +33,10 @@ class DispositivoRepo
         return $dispositivo;
     }
 
+    public function captacionAgua()
+    {
+        $data = Dispositivo::with('captacionAgua')->with('atrapanieblas')->get();
+        return $data;
+    }
+
 }

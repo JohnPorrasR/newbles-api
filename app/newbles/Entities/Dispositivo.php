@@ -31,6 +31,11 @@ class Dispositivo extends Model
         return $this->hasMany(Atrapaniebla::class, 'ID_DISPOSITIVO', 'ID_DISPOSITIVO');
     }
 
+    public function captacionAgua()
+    {
+        return $this->hasMany(CaptacionAgua::class, 'ID_DISPOSITIVO', 'ID_DISPOSITIVO');
+    }
+
     public function tipoBateria()
     {
         return $this->belongsTo(TipoBateria::class, 'ID_TIPO_BATERIA', 'ID_TIPO_BATERIA');
