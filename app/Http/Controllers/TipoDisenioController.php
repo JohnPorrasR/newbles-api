@@ -11,6 +11,7 @@ class TipoDisenioController extends ApiController
 
     public function __construct(TipoDisenioRepo $tipoDisenioRepo)
     {
+        parent::__construct();
         $this->tipoDisenioRepo = $tipoDisenioRepo;
     }
 

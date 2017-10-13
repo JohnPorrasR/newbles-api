@@ -11,6 +11,7 @@ class PersonaController extends ApiController
 
     public function __construct(PersonaRepo $personaRepo)
     {
+        parent::__construct();
         $this->personaRepo = $personaRepo;
     }
 
@@ -22,7 +23,6 @@ class PersonaController extends ApiController
 
     public function store(Request $request)
     {
-        $ID_PERSONA = $request->input('ID_PERSONA');
         $ID_UNIDAD_ORGANICA = $request->input('ID_UNIDAD_ORGANICA');
         $DNI = $request->input('DNI');
         $NOMBRES = $request->input('NOMBRES');
@@ -30,10 +30,9 @@ class PersonaController extends ApiController
         $APELLIDO_MATERNO = $request->input('APELLIDO_MATERNO');
         $USUARIO_CREACION = $request->input('USUARIO_CREACION');
         $FECHA_CREACION = date("Y-m-d H:i:s");
-        $ESTADO_REGISTRO = $request->input('ESTADO_REGISTRO');
+        $ESTADO_REGISTRO = 'A';
 
         $inputs = [
-            'ID_PERSONA' => $ID_PERSONA,
             'ID_UNIDAD_ORGANICA' => $ID_UNIDAD_ORGANICA,
             'DNI' => $DNI,
             'NOMBRES' => $NOMBRES,

@@ -12,6 +12,7 @@ class EstadoAtrapanieblaController extends ApiController
 
     public function __construct(EstadoAtrapanieblaRepo $estadoAtrapanieblaRepo)
     {
+        parent::__construct();
         $this->estadoAtrapanieblaRepo = $estadoAtrapanieblaRepo;
     }
 

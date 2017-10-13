@@ -29,8 +29,8 @@ class UsuarioController extends ApiController
         $ALIAS = $request->input('ALIAS');
         $PASSWORD = $request->input('PASSWORD');
         $RESPUESTA_SECRETA = $request->input('RESPUESTA_SECRETA');
-        $USUARIO_CREACION = date("Y-m-d H:i:s");
-        $FECHA_CREACION = $request->input('FECHA_CREACION');
+        $USUARIO_CREACION = $request->input('USUARIO_CREACION');
+        $FECHA_CREACION = date("Y-m-d H:i:s");
         $ESTADO_REGISTRO = 'A';
 
         $inputs = [
@@ -38,7 +38,7 @@ class UsuarioController extends ApiController
             'ID_PREGUNTA' => $ID_PREGUNTA,
             'ID_ROL' => $ID_ROL,
             'ALIAS' => $ALIAS,
-            'PASSWORD' => bcrypt($PASSWORD),
+            'PASSWORD' => md5($PASSWORD),
             'RESPUESTA_SECRETA' => $RESPUESTA_SECRETA,
             'USUARIO_CREACION' => $USUARIO_CREACION,
             'FECHA_CREACION' => $FECHA_CREACION,
@@ -57,7 +57,7 @@ class UsuarioController extends ApiController
 
     public function update(Request $request, $id)
     {
-        $ID_USUARIO = $request->input('ID_USUARIO');
+        $ID_USUARIO = $id;
         $ID_PERSONA = $request->input('ID_PERSONA');
         $ID_PREGUNTA = $request->input('ID_PREGUNTA');
         $ID_ROL = $request->input('ID_ROL');
@@ -95,10 +95,10 @@ class UsuarioController extends ApiController
 
     public function login(Request $request)
     {
-        $usu = $request->input('alias');
-        $clave = $request->input('clave');
+        $usu = $request->input('ALIAS');
+        $clave = $request->input('PASSWORD');
 
-        $data = $this->usuarioRepo->login($usu, $clave);
+        $data = $this->usuarioRepo->login($usu, md5($clave));
         return $data;
 
     }

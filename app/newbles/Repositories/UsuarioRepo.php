@@ -43,7 +43,7 @@ class UsuarioRepo
 
     public function login($usu, $pass)
     {
-        $data = Usuario::where('ALIAS', $usu)->get();
+        $data = Usuario::where('ALIAS', $usu)->where('PASSWORD', $pass)->where('ESTADO_REGISTRO', 'A')->get();
         return $data;
     }
 

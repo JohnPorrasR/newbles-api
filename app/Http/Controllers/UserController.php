@@ -13,6 +13,7 @@ class UserController extends ApiController
 
     public function __construct(UserRepo $userRepo)
     {
+        parent::__construct();
         $this->userRepo = $userRepo;
     }
 
