@@ -47,3 +47,14 @@ Componentes necesarios para instalación del servicio
     ```php
         php artisan serve
     ```
+9. Obtener un token
+    - Entras por el navegador web
+    - Ingresar con un usuario activo al siguiente enlace:
+        - http://localhost:8000/login
+        - Escoger la opción ubicada en el menu desplegable superior derecha "Clients"
+        - Escoger "Create New Client"
+        - En la ventana flotante ingrese el nombre de usuario y la url de la web
+        - Ingrese a la url:
+            - http://localhost:8000/oauth/authorize?client_id=codigo_generado_de_la_ventana_flotante&redirect_url=url_de_redireccion&response_type=token
+        - Acepta la utorización.
+        - Por ultimo en la url se ubicará el token
