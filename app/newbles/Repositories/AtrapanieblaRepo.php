@@ -40,4 +40,10 @@ class AtrapanieblaRepo
         return $Atrapaniebla;
     }
 
+    public function googleMaps()
+    {
+        $Atrapaniebla = Atrapaniebla::where('ESTADO_REGISTRO', 'A')->select('ID_ATRAPANIEBLAS','LONGITUD','LATITUD')->get();
+        return $Atrapaniebla;
+    }
+
 }

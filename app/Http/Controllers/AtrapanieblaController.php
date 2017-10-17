@@ -119,4 +119,10 @@ class AtrapanieblaController extends ApiController
         return $this->showOne($atrapaniebla);
     }
 
+    public function googleMaps()
+    {
+        $data = $this->atrapanieblaRepo->googleMaps();
+        return $this->showAll($data);
+    }
+
 }
