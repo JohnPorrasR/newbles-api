@@ -11,6 +11,7 @@ class ControlTopeAguaController extends ApiController
 
     public function __construct(ControlTopeAguaRepo $controlTopeAguaRepo)
     {
+        parent::__construct();
         $this->controlTopeAguaRepo = $controlTopeAguaRepo;
     }
 

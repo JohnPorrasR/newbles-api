@@ -11,6 +11,7 @@ class CaptacionAguaController extends ApiController
 
     public function __construct(CaptacionAguaRepo $captacionAguaRepo)
     {
+        parent::__construct();
         $this->captacionAguaRepo = $captacionAguaRepo;
     }
 

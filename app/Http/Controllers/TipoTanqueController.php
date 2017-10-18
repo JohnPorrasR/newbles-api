@@ -11,6 +11,7 @@ class TipoTanqueController extends ApiController
 
     public function __construct(TipoTanqueRepo $tipoTanqueRepo)
     {
+        parent::__construct();
         $this->tipoTanqueRepo = $tipoTanqueRepo;
     }
 

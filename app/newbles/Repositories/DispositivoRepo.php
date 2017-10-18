@@ -35,7 +35,15 @@ class DispositivoRepo
 
     public function captacionAgua()
     {
+<<<<<<< HEAD
         $data = Dispositivo::with('captacionAgua')->get();
+=======
+        $data = Dispositivo::with(
+                    array('captacionAgua' => function($query){
+                        $query->where('ESTADO_REGISTRO', 'A');
+                    })
+                )->select('ID_DISPOSITIVO')->get();
+>>>>>>> 948e156a8370823de96fa7c4159649b70f6b10bd
         return $data;
     }
 

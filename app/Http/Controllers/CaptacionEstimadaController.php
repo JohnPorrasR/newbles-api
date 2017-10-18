@@ -11,6 +11,7 @@ class CaptacionEstimadaController extends ApiController
 
     public function __construct(CaptacionEstimadaRepo $captacionEstimadaRepo)
     {
+        parent::__construct();
         $this->captacionEstimadaRepo = $captacionEstimadaRepo;
     }
 

@@ -14,6 +14,7 @@ class AtrapanieblaController extends ApiController
 
     public function __construct(AtrapanieblaRepo $atrapanieblaRepo, FotoAtrapanieblaRepo $fotoAtrapanieblaRepo)
     {
+        parent::__construct();
         $this->atrapanieblaRepo = $atrapanieblaRepo;
         $this->fotoAtrapanieblaRepo = $fotoAtrapanieblaRepo;
     }

@@ -11,6 +11,7 @@ class TipoMallaController extends ApiController
 
     public function __construct(TipoMallaRepo $tipoMallaRepo)
     {
+        parent::__construct();
         $this->tipoMallaRepo = $tipoMallaRepo;
     }
 

@@ -11,6 +11,7 @@ class TipoBateriaController extends ApiController
 
     public function __construct(TipoBateriaRepo $tipoBateriaRepo)
     {
+        parent::__construct();
         $this->tipoBateriaRepo = $tipoBateriaRepo;
     }
 

@@ -11,6 +11,7 @@ class TipoServoMotorController extends ApiController
 
     public function __construct(TipoServoMotorRepo $tipoServoMotorRepo)
     {
+        parent::__construct();
         $this->tipoServoMotorRepo = $tipoServoMotorRepo;
     }
 
