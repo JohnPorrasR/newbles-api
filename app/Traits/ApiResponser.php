@@ -27,4 +27,9 @@ trait ApiResponser
         return $this->successResponce(['data' => $instance], $code);
     }
 
+    protected function showArray($array, $code = 200)
+    {
+        return $this->successResponce(['data' => $array], $code);
+    }
+
 }

@@ -76,9 +76,9 @@ class DispositivoController extends ApiController
         return $this->showOne($dispositivo);
     }
 
-    public function captacionAgua()
+    public function captacionAgua($id)
     {
-        $data = $this->dispositivoRepo->captacionAgua();
+        $data = $this->dispositivoRepo->captacionAgua($id);
         return $data;
     }
 

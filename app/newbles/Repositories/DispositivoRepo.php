@@ -2,7 +2,9 @@
 
 namespace App\newbles\Repositories;
 
+use App\newbles\Entities\CaptacionAgua;
 use App\newbles\Entities\Dispositivo;
+use Illuminate\Support\Facades\DB;
 
 class DispositivoRepo
 {
@@ -33,18 +35,27 @@ class DispositivoRepo
         return $dispositivo;
     }
 
-    public function captacionAgua()
+    public function captacionAgua($id)
     {
-<<<<<<< HEAD
-        $data = Dispositivo::with('captacionAgua')->get();
-=======
-        $data = Dispositivo::with(
-                    array('captacionAgua' => function($query){
-                        $query->where('ESTADO_REGISTRO', 'A');
-                    })
-                )->select('ID_DISPOSITIVO')->get();
->>>>>>> 948e156a8370823de96fa7c4159649b70f6b10bd
-        return $data;
+        $array = array();
+        $can = "";
+        $i = 0;
+        $data = DB::select("select d.ID_DISPOSITIVO, cg.CANTIDAD_CAPTADA, cg.FECHA_REGISTRO 
+                            from dispositivo as d
+                            inner join captacion_agua as cg on d.ID_DISPOSITIVO = cg.ID_DISPOSITIVO
+                            where d.ID_DISPOSITIVO = $id and d.ESTADO_REGISTRO = 'A'");
+        foreach ($data as $d)
+        {
+            if($i > 0){
+                $can = $can.','.$d->CANTIDAD_CAPTADA;
+            }
+            else{
+                $can = $d->CANTIDAD_CAPTADA;
+            }
+            $i = $i + 1;
+        }
+        $array = array('dispositivo' => $id, 'cantidad' => $can);
+        return $array;
     }
 
 }

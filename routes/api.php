@@ -18,7 +18,7 @@ Route::resource('cierre_valvula', 'CierreValvulaController', ['except' => ['crea
 Route::resource('control_tope_agua', 'ControlTopeAguaController', ['except' => ['create', 'edit']]);
 
 Route::resource('dispositivo','DispositivoController', ['except' => ['create', 'edit']]);
-    Route::get('dispositivo_catacion_agua','DispositivoController@captacionAgua')->name('dispositivo.captacionAgua');
+    Route::get('dispositivo_catacion_agua/{id}','DispositivoController@captacionAgua')->name('dispositivo.captacionAgua');
 
 Route::resource('estado_atrapanieblas', 'EstadoAtrapanieblaController', ['except' => ['create', 'edit']]);
 
