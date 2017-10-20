@@ -1,12 +1,13 @@
 @component('mail::message')
-# Introduction
+# Newbles
 
-The body of your message.
-
-@component('mail::button', ['url' => ''])
-Button Text
+@component('mail::panel')
+{{ $mensaje }}
 @endcomponent
 
-Thanks,<br>
-{{ config('app.name') }}
+@component('mail::button', ['url' => 'http://localhost:8000', 'color' => 'green'])
+    Ver
+@endcomponent
+
+Gracias
 @endcomponent

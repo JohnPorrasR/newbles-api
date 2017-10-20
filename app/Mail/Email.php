@@ -16,9 +16,11 @@ class Email extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($to, $name, $mensaje)
     {
-        //
+        $this->to = $to;
+        $this->name = $name;
+        $this->mensaje = $mensaje;
     }
 
     /**
@@ -28,6 +30,11 @@ class Email extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.email');
+        return $this->markdown('emails.email')
+            ->with([
+                'to' => $this->to,
+                'name' => $this->name,
+                'mensaje' => $this->mensaje
+            ]);
     }
 }

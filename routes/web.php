@@ -13,6 +13,4 @@ Route::get('/home/clients', 'HomeController@getClients')->name('home.getClients'
 Route::get('/home/authorized-clients', 'HomeController@getAuthorizedClients')->name('home.getAuthorizedClients');
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('email', function (){
-    Mail::to("johnporrasr@gmail.com")->send(new \App\Mail\Email());
-});
+Route::resource('email', 'EmailController');

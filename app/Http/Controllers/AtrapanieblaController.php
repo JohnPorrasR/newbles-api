@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AtrapanieblasRequest;
 use App\newbles\Repositories\AtrapanieblaRepo;
+use App\newbles\Repositories\EmailRepo;
 use App\newbles\Repositories\FotoAtrapanieblaRepo;
 use Illuminate\Http\Request;
 
@@ -11,12 +12,14 @@ class AtrapanieblaController extends ApiController
 {
     protected $atrapanieblaRepo;
     protected $fotoAtrapanieblaRepo;
+    protected $emailRepo;
 
-    public function __construct(AtrapanieblaRepo $atrapanieblaRepo, FotoAtrapanieblaRepo $fotoAtrapanieblaRepo)
+    public function __construct(AtrapanieblaRepo $atrapanieblaRepo, FotoAtrapanieblaRepo $fotoAtrapanieblaRepo, EmailRepo $emailRepo)
     {
         parent::__construct();
         $this->atrapanieblaRepo = $atrapanieblaRepo;
         $this->fotoAtrapanieblaRepo = $fotoAtrapanieblaRepo;
+        $this->emailRepo = $emailRepo;
     }
 
     public function index()
@@ -90,6 +93,9 @@ class AtrapanieblaController extends ApiController
         ];
 
         $atrapaniebla = $this->atrapanieblaRepo->actualizarAprataniebla($inputs, $ID_ATRAPANIEBLAS);
+        if($atrapaniebla->ID_ATRAPANIEBLAS > 0){
+
+        }
         return $this->showOne($atrapaniebla);
     }
 
