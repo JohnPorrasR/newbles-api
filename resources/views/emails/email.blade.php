@@ -2,7 +2,7 @@
 # Newbles
 
 @component('mail::panel')
-{{ $mensaje }}
+    {{ $mensaje }}
 @endcomponent
 
 @component('mail::button', ['url' => 'http://localhost:8000', 'color' => 'green'])

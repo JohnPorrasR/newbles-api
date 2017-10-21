@@ -16,9 +16,8 @@ class EmailController extends Controller
 
     public function index()
     {
-        $to = "johnporrasr@gmail.com";
-        $name = "John Porras R";
+        $cod = 1;
         $mensaje = "Se ha realizando un cambio en el estado del atrapanieblas";
-        return $this->emailRepo->envioEmail($to, $name, $mensaje);
+        $this->emailRepo->envioEmail($mensaje, $cod);
     }
 }

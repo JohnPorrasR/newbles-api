@@ -29,6 +29,7 @@ class PersonaController extends ApiController
         $APELLIDO_PATERNO = $request->input('APELLIDO_PATERNO');
         $APELLIDO_MATERNO = $request->input('APELLIDO_MATERNO');
         $USUARIO_CREACION = $request->input('USUARIO_CREACION');
+        $CORREO = $request->input('CORREO');
         $FECHA_CREACION = date("Y-m-d H:i:s");
         $ESTADO_REGISTRO = 'A';
 
@@ -40,7 +41,8 @@ class PersonaController extends ApiController
             'APELLIDO_MATERNO' => $APELLIDO_MATERNO,
             'USUARIO_CREACION' => $USUARIO_CREACION,
             'FECHA_CREACION' => $FECHA_CREACION,
-            'ESTADO_REGISTRO' => $ESTADO_REGISTRO
+            'ESTADO_REGISTRO' => $ESTADO_REGISTRO,
+            'CORREO' => $CORREO
         ];
 
         $data = $this->personaRepo->insertarPersona($inputs);
@@ -63,6 +65,7 @@ class PersonaController extends ApiController
         $APELLIDO_MATERNO = $request->input('APELLIDO_MATERNO');
         $USUARIO_MODIFICACION = $request->input('USUARIO_MODIFICACION');
         $FECHA_MODIFICACION = date("Y-m-d H:i:s");
+        $CORREO = $request->input('CORREO');
 
         $inputs = [
             'ID_PERSONA' => $ID_PERSONA,
@@ -72,7 +75,8 @@ class PersonaController extends ApiController
             'APELLIDO_PATERNO' => $APELLIDO_PATERNO,
             'APELLIDO_MATERNO' => $APELLIDO_MATERNO,
             'USUARIO_MODIFICACION' => $USUARIO_MODIFICACION,
-            'FECHA_MODIFICACION' => $FECHA_MODIFICACION
+            'FECHA_MODIFICACION' => $FECHA_MODIFICACION,
+            'CORREO' => $CORREO
         ];
         $data = $this->personaRepo->actualizarPersona($inputs, $id);
         return $this->showOne($data);

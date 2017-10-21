@@ -1,24 +1,25 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: LOPP02
- * Date: 20/10/2017
- * Time: 17:25
- */
 
 namespace App\newbles\Repositories;
-
 
 use App\Mail\Email;
 use Illuminate\Support\Facades\Mail;
 
 class EmailRepo
 {
+    protected $personaRepo;
 
-    public function envioEmail($to, $name, $mensaje)
+    public function __construct(PersonaRepo $personaRepo)
     {
-        Mail::to($to, $name)->send(new Email($to, $name, $mensaje));
-        // return new Email($to, $name, $mensaje);
+        $this->personaRepo = $personaRepo;
+    }
+
+    public function envioEmail($mensaje, $cod)
+    {
+        $persona = $this->personaRepo->listarUnPersona($cod);
+        Mail::to(strtolower($persona->CORREO), $persona->NOMBRES.''.$persona->APELLIDO_PATERNO.''.$persona->APELLIDO_MATERNO)
+                    ->send(new Email($mensaje));
+        // return new Email();
     }
 
 }

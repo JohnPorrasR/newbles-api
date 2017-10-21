@@ -20,7 +20,8 @@ class Persona extends Model
         'FECHA_CREACION',
         'USUARIO_MODIFICACION',
         'FECHA_MODIFICACION',
-        'ESTADO_REGISTRO'
+        'ESTADO_REGISTRO',
+        'CORREO'
     ];
 
     public $timestamps = false;
