@@ -17,8 +17,8 @@ class EmailRepo
 
     public function envioEmail($to, $name, $mensaje)
     {
-        //Mail::to($to, $name)->send(new Email($to, $name, $mensaje));
-        return new Email($to, $name, $mensaje);
+        Mail::to($to, $name)->send(new Email($to, $name, $mensaje));
+        // return new Email($to, $name, $mensaje);
     }
 
 }

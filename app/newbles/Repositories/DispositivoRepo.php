@@ -35,15 +35,17 @@ class DispositivoRepo
         return $dispositivo;
     }
 
-    public function captacionAgua($id)
+    public function captacionAgua($id, $MONTH, $YEAR)
     {
         $array = array();
         $can = "";
         $i = 0;
-        $data = DB::select("select d.ID_DISPOSITIVO, cg.CANTIDAD_CAPTADA, cg.FECHA_REGISTRO 
+        $data = DB::select("select SUM(cg.CANTIDAD_CAPTADA) as CANTIDAD_CAPTADA, d.ID_DISPOSITIVO, cg.FECHA_REGISTRO 
                             from dispositivo as d
                             inner join captacion_agua as cg on d.ID_DISPOSITIVO = cg.ID_DISPOSITIVO
-                            where d.ID_DISPOSITIVO = $id and d.ESTADO_REGISTRO = 'A'");
+                            where d.ID_DISPOSITIVO = $id and d.ESTADO_REGISTRO = 'A' and 
+																	MONTH(cg.FECHA_REGISTRO) = $MONTH and YEAR(cg.FECHA_REGISTRO) = $YEAR
+														group by cg.FECHA_REGISTRO");
         foreach ($data as $d)
         {
             if($i > 0){

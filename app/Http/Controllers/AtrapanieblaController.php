@@ -48,7 +48,7 @@ class AtrapanieblaController extends ApiController
         $FECHA_VIGENCIA = $request->input('FECHA_VIGENCIA');
         $HUMEDAD_PROMEDIO = $request->input('HUMEDAD_PROMEDIO');
         $OBSERVACION = $request->input('OBSERVACION');
-        $USUARIO_CREACION = 1;
+        $USUARIO_CREACION = $request->input('USUARIO_CREACION');
         $FECHA_CREACION = date("Y-m-d H:i:s");
         $ESTADO_REGISTRO = 'P';
         $inputs = [
@@ -61,7 +61,7 @@ class AtrapanieblaController extends ApiController
             'FECHA_CREACION' => $FECHA_CREACION, 'ESTADO_REGISTRO' => $ESTADO_REGISTRO
         ];
         $res = $this->atrapanieblaRepo->insertarAprataniebla($inputs);
-        return $this->showAll($res);
+        return $this->showOne($res);
     }
 
     public function update(AtrapanieblasRequest $request, $cod)
