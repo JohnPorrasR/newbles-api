@@ -62,8 +62,56 @@ class DispositivoRepo
 
     public function captacionAguaTodos($MONTH, $YEAR)
     {
-        // $dispositivos = Dispositivo::where('ESTADO_REGISTRO', 'A')->get();
-        return $MONTH;
+        $dispositivos = DB::select("select SUM(cg.CANTIDAD_CAPTADA) as CANTIDAD_CAPTADA, d.ID_DISPOSITIVO, cg.FECHA_REGISTRO 
+                                        from dispositivo as d
+                                        inner join captacion_agua as cg on d.ID_DISPOSITIVO = cg.ID_DISPOSITIVO
+                                        where d.ESTADO_REGISTRO = 'A' and MONTH(cg.FECHA_REGISTRO) = 6 and YEAR(cg.FECHA_REGISTRO) = 2017
+                                        group by cg.FECHA_REGISTRO, d.ID_DISPOSITIVO");
+        return $dispositivos;
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
