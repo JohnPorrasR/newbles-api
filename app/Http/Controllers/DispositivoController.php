@@ -82,4 +82,10 @@ class DispositivoController extends ApiController
         return $data;
     }
 
+    public function captacionAguaTodos($MONTH, $YEAR)
+    {
+        $data = $this->dispositivoRepo->captacionAguaTodos($MONTH, $YEAR);
+        return $data;
+    }
+
 }

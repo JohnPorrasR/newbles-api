@@ -60,4 +60,10 @@ class DispositivoRepo
         return $array;
     }
 
+    public function captacionAguaTodos($MONTH, $YEAR)
+    {
+        // $dispositivos = Dispositivo::where('ESTADO_REGISTRO', 'A')->get();
+        return $MONTH;
+    }
+
 }

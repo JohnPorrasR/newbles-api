@@ -19,6 +19,7 @@ Route::resource('control_tope_agua', 'ControlTopeAguaController', ['except' => [
 
 Route::resource('dispositivo','DispositivoController', ['except' => ['create', 'edit']]);
     Route::get('dispositivo_catacion_agua/{id}/{MONTH}/{YEAR}','DispositivoController@captacionAgua')->name('dispositivo.captacionAgua');
+    Route::get('dispositivos_catacion_agua/{MONTH}/{YEAR}','DispositivoController@captacionAguaTodos')->name('dispositivo.captacionAguaTodos');
 
 Route::resource('estado_atrapanieblas', 'EstadoAtrapanieblaController', ['except' => ['create', 'edit']]);
 
