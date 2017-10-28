@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 Route::resource('apertura_valvula', 'AperturaValvulaController', ['except' => ['create', 'edit']]);
 
 Route::resource('atrapaniebla','AtrapanieblaController', ['except' => ['create', 'edit']]);
-    Route::get('atrapaniebla/listrar_pendientes', 'AtrapanieblaController@listarAtrapanieblasPendientes')->name('atrapaniebla.listarPendientes');
+    Route::get('listrar_atrapaniebla_pendientes', 'AtrapanieblaController@listarAtrapanieblasPendientes')->name('atrapaniebla.listarPendientes');
     Route::get('atrapaniebla_google_maps', 'AtrapanieblaController@googleMaps')->name('atrapaniebla.googleMaps');
     Route::post('atrapaniebla/validar', 'AtrapanieblaController@validarAtrapanieblas')->name('atrapaniebla.validar');
 
