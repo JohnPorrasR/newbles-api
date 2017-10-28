@@ -14,7 +14,7 @@ class EstadoAtrapanieblaRepo
         return $estadoAtrapaniebla;
     }
 
-    public function listarUnEstadoAtrapaniebla($cod)
+    public function consultarEstadoAtrapaniebla($cod)
     {
         $estadoAtrapaniebla = EstadoAtrapaniebla::findOrFail($cod);
         return $estadoAtrapaniebla;

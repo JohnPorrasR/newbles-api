@@ -20,7 +20,7 @@ class TipoDisenioRepo
         return $tipoDisenio;
     }
 
-    public function listarUnTipoDisenio($cod)
+    public function consultarTipoDisenio($cod)
     {
         $tipoDisenio = TipoDisenio::findOrFail($cod);
         return $tipoDisenio;

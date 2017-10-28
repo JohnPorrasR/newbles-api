@@ -21,7 +21,7 @@ class UsuarioRepo
         return $usuario;
     }
 
-    public function listarUnUsuario($cod)
+    public function consultarUsuario($cod)
     {
         $usuario = Usuario::findOrFail($cod);
         return $usuario;

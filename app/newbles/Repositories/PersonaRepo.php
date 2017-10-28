@@ -14,7 +14,7 @@ class PersonaRepo
         return $data;
     }
 
-    public function listarUnPersona($cod)
+    public function consultarPersona($cod)
     {
         $data = Persona::findOrFail($cod);
         return $data;

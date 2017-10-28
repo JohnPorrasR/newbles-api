@@ -14,7 +14,7 @@ class TipoServoMotorRepo
         return $tipoServoMotor;
     }
 
-    public function listarUnTipoServoMotor($cod)
+    public function consultarTipoServoMotor($cod)
     {
         $tipoServoMotor = TipoServoMotor::findOrFail($cod);
         return $tipoServoMotor;

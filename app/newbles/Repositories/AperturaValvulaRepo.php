@@ -20,7 +20,7 @@ class AperturaValvulaRepo
         return $datos;
     }
 
-    public function listarUnaAperturaValvula($cod)
+    public function consultarAperturaValvula($cod)
     {
         $datos = AperturaValvula::where('ESTADO_REGISTRO', 'A')->where('ID_ATRAPANIEBLAS', $cod)->get();
         return $datos;

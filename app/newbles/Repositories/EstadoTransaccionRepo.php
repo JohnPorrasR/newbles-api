@@ -21,7 +21,7 @@ class EstadoTransaccionRepo
         return $datos;
     }
 
-    public function listarUnaEstadoTransaccion($cod)
+    public function consultarEstadoTransaccion($cod)
     {
         $datos = EstadoTransaccion::where('ESTADO_REGISTRO', 'A')->where('ID_ATRAPANIEBLAS', $cod)->get();
         return $datos;

@@ -14,7 +14,7 @@ class TipoMallaRepo
         return $tipoMallas;
     }
 
-    public function listarUnTipoMalla($cod)
+    public function consultarTipoMalla($cod)
     {
         $tipoMalla = TipoMalla::findOrFail($cod);
         return $tipoMalla;

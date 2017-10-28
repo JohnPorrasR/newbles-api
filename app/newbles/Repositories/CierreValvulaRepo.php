@@ -20,7 +20,7 @@ class CierreValvulaRepo
         return $datos;
     }
 
-    public function listarUnaCierreValvula($cod)
+    public function consultarCierreValvula($cod)
     {
         $datos = CierreValvula::where('ESTADO_REGISTRO', 'A')->where('ID_ATRAPANIEBLAS', $cod)->get();
         return $datos;

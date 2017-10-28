@@ -14,7 +14,7 @@ class FotoAtrapanieblaRepo
         return $fotoAtrapanieblas;
     }
 
-    public function listarUnFotoAtrapaniebla($cod)
+    public function consultarFotoAtrapaniebla($cod)
     {
         $fotoAtrapaniebla = FotoAtrapaniebla::findOrFail($cod);
         return $fotoAtrapaniebla;

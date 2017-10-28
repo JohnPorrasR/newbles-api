@@ -21,7 +21,7 @@ class CaptacionEstimadaRepo
         return $datos;
     }
 
-    public function listarUnaCaptacionEstimada($cod)
+    public function consultarCaptacionEstimada($cod)
     {
         $datos = CaptacionEstimada::where('ESTADO_REGISTRO', 'A')->where('ID_ATRAPANIEBLAS', $cod)->get();
         return $datos;

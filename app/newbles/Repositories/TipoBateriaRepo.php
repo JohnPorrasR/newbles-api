@@ -14,7 +14,7 @@ class TipoBateriaRepo
         return $tipoBaterias;
     }
 
-    public function listarUnTipoBateria($cod)
+    public function consultarTipoBateria($cod)
     {
         $tipoBateria = TipoBateria::findOrFail($cod);
         return $tipoBateria;

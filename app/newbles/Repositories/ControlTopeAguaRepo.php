@@ -20,7 +20,7 @@ class ControlTopeAguaRepo
         return $datos;
     }
 
-    public function listarUnaControlTopeAgua($cod)
+    public function consultarControlTopeAgua($cod)
     {
         $datos = ControlTopeAgua::where('ESTADO_REGISTRO', 'A')->where('ID_ATRAPANIEBLAS', $cod)->get();
         return $datos;

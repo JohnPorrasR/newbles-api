@@ -16,7 +16,7 @@ class EmailRepo
 
     public function envioEmail($mensaje, $cod)
     {
-        $persona = $this->personaRepo->listarUnPersona($cod);
+        $persona = $this->personaRepo->consultarPersona($cod);
         Mail::to(strtolower($persona->CORREO), $persona->NOMBRES.''.$persona->APELLIDO_PATERNO.''.$persona->APELLIDO_MATERNO)
                     ->send(new Email($mensaje));
         // return new Email();

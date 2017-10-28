@@ -20,7 +20,7 @@ class CaptacionAguaRepo
         return $datos;
     }
 
-    public function listarUnCaptacionAgua($cod)
+    public function consultarCaptacionAgua($cod)
     {
         $datos = CaptacionAgua::where('ESTADO_REGISTRO', 'A')->where('ID_ATRAPANIEBLAS', $cod)->get();
         return $datos;

@@ -20,7 +20,7 @@ class UserRepo
         return $tipoServoMotor;
     }
 
-    public function listarUnUsuario($cod)
+    public function consultarUsuario($cod)
     {
         $tipoServoMotor = User::findOrFail($cod);
         return $tipoServoMotor;

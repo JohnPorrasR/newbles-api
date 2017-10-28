@@ -14,7 +14,7 @@ class TipoTanqueRepo
         return $tipoTanque;
     }
 
-    public function listarUnTipoTanque($cod)
+    public function consultarTipoTanque($cod)
     {
         $tipoTanque = TipoTanque::findOrFail($cod);
         return $tipoTanque;

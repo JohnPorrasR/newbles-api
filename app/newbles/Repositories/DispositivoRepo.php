@@ -15,7 +15,7 @@ class DispositivoRepo
         return $dispositivos;
     }
 
-    public function listarUnDispositivo($cod)
+    public function consultarDispositivo($cod)
     {
         $dispositivo = Dispositivo::findOrFail($cod);
         return $dispositivo;
