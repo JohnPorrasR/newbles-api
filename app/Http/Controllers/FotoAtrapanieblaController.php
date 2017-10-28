@@ -22,6 +22,12 @@ class FotoAtrapanieblaController extends ApiController
         $fotoAtrapanieblas = $this->fotoAtrapanieblaRepo->listarFotoAtrapaniebla();
         return $this->showAll($fotoAtrapanieblas);
     }
+
+    public function show($cod)
+    {
+        $fotoAtrapanieblas = $this->fotoAtrapanieblaRepo->consultarFotoAtrapaniebla($cod);
+        return $this->showOne($fotoAtrapanieblas);
+    }
     
     public function store(Request $request)
     {

@@ -14,7 +14,7 @@ class AtrapanieblaRepo
         return $Atrapaniebla;
     }
 
-    public function consultarprataniebla($cod)
+    public function consultarAprataniebla($cod)
     {
         $Atrapaniebla = Atrapaniebla::where('ESTADO_REGISTRO', 'A')->where('ID_ATRAPANIEBLAS', $cod)->get();
         return $Atrapaniebla;

@@ -23,7 +23,7 @@ class TipoTanqueController extends ApiController
 
     public function show($cod)
     {
-        $tipoTanque = $this->tipoTanqueRepo->listarUnDispositivo($cod);
+        $tipoTanque = $this->tipoTanqueRepo->consultarTipoTanque($cod);
         return $this->showOne($tipoTanque);
     }
 

@@ -23,7 +23,7 @@ class TipoServoMotorController extends ApiController
 
     public function show($cod)
     {
-        $tipoServoMotor = $this->tipoServoMotorRepo->listarUnTipoServoMotor($cod);
+        $tipoServoMotor = $this->tipoServoMotorRepo->consultarTipoServoMotor($cod);
         return $this->showOne($tipoServoMotor);
     }
 

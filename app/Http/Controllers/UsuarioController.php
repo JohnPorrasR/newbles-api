@@ -51,7 +51,7 @@ class UsuarioController extends ApiController
 
     public function show($id)
     {
-        $data = $this->usuarioRepo->listarUnUsuario($id);
+        $data = $this->usuarioRepo->consultarUsuario($id);
         return $this->showOne($data);
     }
 

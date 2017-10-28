@@ -23,7 +23,7 @@ class TipoDisenioController extends ApiController
 
     public function show($cod)
     {
-        $tipoDisenio = $this->tipoDisenioRepo->listarUnTipoDisenio($cod);
+        $tipoDisenio = $this->tipoDisenioRepo->consultarTipoDisenio($cod);
         return $this->showOne($tipoDisenio);
     }
 

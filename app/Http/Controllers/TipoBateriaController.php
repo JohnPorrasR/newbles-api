@@ -23,7 +23,7 @@ class TipoBateriaController extends ApiController
 
     public function show($cod)
     {
-        $tipoBaterias = $this->tipoBateriaRepo->listarUnTipoBateria($cod);
+        $tipoBaterias = $this->tipoBateriaRepo->consultarTipoBateria($cod);
         return $this->showOne($tipoBaterias);
     }
 

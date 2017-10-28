@@ -51,7 +51,7 @@ class PersonaController extends ApiController
 
     public function show($id)
     {
-        $data = $this->personaRepo->listarUnPersona($id);
+        $data = $this->personaRepo->consultarPersona($id);
         return $this->showOne($data);
     }
 

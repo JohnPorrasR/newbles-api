@@ -23,7 +23,7 @@ class TipoMallaController extends ApiController
 
     public function show($cod)
     {
-        $tipoMalla = $this->tipoMallaRepo->listarUnTipoMalla($cod);
+        $tipoMalla = $this->tipoMallaRepo->consultarTipoMalla($cod);
         return $this->showOne($tipoMalla);
     }
 
