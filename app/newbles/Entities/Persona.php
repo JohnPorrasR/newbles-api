@@ -16,12 +16,12 @@ class Persona extends Model
         'NOMBRES',
         'APELLIDO_PATERNO',
         'APELLIDO_MATERNO',
+        'CORREO',
         'USUARIO_CREACION',
         'FECHA_CREACION',
         'USUARIO_MODIFICACION',
         'FECHA_MODIFICACION',
-        'ESTADO_REGISTRO',
-        'CORREO'
+        'ESTADO_REGISTRO'
     ];
 
     public $timestamps = false;

@@ -96,7 +96,7 @@ class AtrapanieblaController extends ApiController
         $atrapaniebla = $this->atrapanieblaRepo->actualizarAprataniebla($inputs, $ID_ATRAPANIEBLAS);
         if($atrapaniebla->ID_ATRAPANIEBLAS > 0){
             $mensaje = "Se han cambiado los datos del Atrapaniebla, Se necesita su aprovación";
-            $this->emailRepo->envioEmail($mensaje, 1);
+            //$this->emailRepo->envioEmail($mensaje, 1);
         }
         return $this->showOne($atrapaniebla);
     }
